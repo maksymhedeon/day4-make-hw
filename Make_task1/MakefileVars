@@ -1,0 +1,20 @@
+TARGET = hello
+
+SRC = main.c
+
+OBJ = $(SRC:.c=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJ)
+	gcc $(OBJ) -o $@
+
+%.o : %.c
+	gcc -c $<
+
+clean:
+	rm -f $(OBJ)
+
+clean-all: clean
+	rm -f $(TARGET)
+
